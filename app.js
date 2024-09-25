@@ -2,6 +2,13 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import { Router } from "express";
+const router = Router();
+// Importar las rutas
+import homeRoutes from "./routes/home.js";
+import aboutRoutes from "./routes/about.js";
+import contactRoutes from "./routes/contact.js";
+import productsRoutes from "./routes/product.js";
 
 // Crear la aplicación express
 const app = express();
@@ -11,20 +18,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Servir archivos estáticos desde la carpeta 'public'
-app.use(express.static(path.join(__dirname, "public")));
-
-// Rutas adicionales
-app.get("/about", (req, res) => {
-  res.send("Ruta Acerca de - Aquí va información sobre nosotros.");
+router.get("/home", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-app.get("/contact", (req, res) => {
-  res.send("Ruta Contacto - ¡Ponte en contacto con nosotros!");
-});
-
-app.get("/products", (req, res) => {
-  res.send("Ruta Productos - Aquí están nuestros productos.");
-});
+// Usar las rutas importadas
+app.use(homeRoutes);
+app.use(aboutRoutes);
+app.use(contactRoutes);
+app.use(productsRoutes);
 
 // Exportar el módulo app para usarlo en server.mjs
 export default app;
