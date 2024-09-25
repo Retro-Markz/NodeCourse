@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { Router } from "express";
 const router = Router();
+
 // Importar las rutas
 import homeRoutes from "./routes/home.js";
 import aboutRoutes from "./routes/about.js";
