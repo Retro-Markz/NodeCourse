@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Shop</title>
   </head>
   <body>
-    <header>
+    <header
+      class="w-screen h-[10vh] flex justify-center items-center font-semibold text-2xl bg-blue-400 text-white"
+    >
       <nav>
-        <ul>
-          <li>
+        <ul class="">
+          <li class="flex justify-around w-[600px]">
             <a href="/shop">Shop</a>
             <a href="/admin/add-product">Add Product</a>
           </li>
@@ -17,9 +21,11 @@
       </nav>
     </header>
 
-    <main>
-      <h1>My Products</h1>
-      <p>List of all products...</p>
+    <main class="flex justify-center">
+      <div class="w-[90vw] h-[80vh]">
+        <h1 class="text-4xl font-bold text-center py-8">My Products</h1>
+        <p>List of all products...</p>
+      </div>
     </main>
   </body>
 </html>
