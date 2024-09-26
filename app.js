@@ -3,6 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import path from "path";
+
 // Crear la aplicación express
 const app = express();
 
@@ -13,7 +14,6 @@ import shopRouter from "./routes/Shop.js";
 // Obtener la ruta del directorio actual
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.urlencoded({ extended: false }));
