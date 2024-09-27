@@ -1,7 +1,9 @@
 import { Router } from "express";
-// import path from "path";
-// import { fileURLToPath } from "url";
+import path from "path";
+import { fileURLToPath } from "url";
 import adminRouter from "./Admin.js";
+
+import bodyParser from "body-parser";
 
 const router = Router();
 
@@ -10,9 +12,7 @@ const router = Router();
 // const __dirname = path.dirname(__filename);
 
 router.get("/shop", (req, res, next) => {
-  const products = adminRouter.products;
-
-  console.log(adminRouter.products);
+  let products = adminRouter.products;
   res.render("shop", { prods: products, docTitle: "shop" });
 });
 
